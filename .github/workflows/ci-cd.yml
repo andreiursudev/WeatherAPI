@@ -65,4 +65,5 @@ jobs:
             docker rm weather-app || true
 
             # Run the new container
-            docker run -d --name weather-app -p 8081:8081 -v /home/${{ secrets.SSH_USER }}/.env:/app/.env weather-app:latest
+            docker run -d --name weather-app --network host -v /home/${{ secrets.SSH_USER }}/.env:/app/.env weather-app:latest
+
